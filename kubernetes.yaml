@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: insureme-deploy
+  labels:
+    app: insureme-app
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: insureme-app
+  template:
+    metadata:
+      labels:
+        app: insureme-app
+    spec:
+      containers:
+      - name: insureme-container
+        image: shrawani2/insureme:latest
+        ports:
+        - containerPort: 8082
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: insureme-np-service
+  labels:
+    app: insureme-app
+spec:
+  selector:
+    app: insureme-app
+
+  type: NodePort
+  ports:
+  - nodePort: 32321 
+    port: 8082
+    targetPort: 8082
