@@ -32,6 +32,6 @@ spec:
 
   type: NodePort
   ports:
-  - nodePort: 32321 
+  - nodePort: 31030 
     port: 8081
     targetPort: 8081
