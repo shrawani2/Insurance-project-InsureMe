@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: insureme-container
-        image: shrawani2/insureme:latest
+        image: shrawani2/insureme-app:latest
         ports:
         - containerPort: 8082
 ---
